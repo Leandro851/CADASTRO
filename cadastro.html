@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Paciente - Completo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-body: #f4f7fe;
+            --text-label: #334155; 
+            --text-input: #475569;
+            --border-blue: #3b82f6;
+            --border-purple: #8b5cf6;
+            --border-green: #10b981;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-body);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .tablet-wrapper {
+            width: 100%;
+            max-width: 1050px;
+            background: white;
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+        }
+
+        .header-banner {
+            width: 100%;
+            height: 200px;
+            background: #f1f5fe url('mock.png') no-repeat center;
+            background-size: contain; 
+            margin-bottom: 30px;
+            border-radius: 16px;
+            border: 1px solid var(--border-blue);
+        }
+
+        .section-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1.2px solid transparent;
+        }
+
+        .card-blue { border-color: var(--border-blue); }
+        .card-purple { border-color: var(--border-purple); }
+        .card-green { border-color: var(--border-green); }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 18px;
+        }
+
+        .blue-t { color: #2563eb; }
+        .purple-t { color: #7c3aed; }
+        .green-t { color: #059669; }
+
+        .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 15px; }
+        .field { display: flex; flex-direction: column; gap: 6px; }
+
+        label { 
+            font-size: 0.75rem; 
+            font-weight: 600; 
+            color: var(--text-label); 
+        }
+
+        .input-group { position: relative; display: flex; align-items: center; }
+        .input-group i { position: absolute; left: 14px; font-size: 0.9rem; }
+
+        .icon-blue { color: #3b82f6; }
+        .icon-purple { color: #8b5cf6; }
+        .icon-green { color: #10b981; }
+
+        input, select {
+            width: 100%;
+            padding: 10px 10px 10px 42px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            background-color: #fcfdfe;
+            font-size: 0.9rem;
+            color: var(--text-input);
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        .sex-options { display: flex; gap: 8px; width: 100%; }
+        
+        .btn-option {
+            flex: 1;
+            padding: 8px 4px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            background: white;
+            color: var(--text-label);
+            white-space: nowrap;
+        }
+
+        .col-2 { grid-column: span 2; }
+        .col-3 { grid-column: span 3; }
+        .col-4 { grid-column: span 4; }
+        .col-5 { grid-column: span 5; }
+        .col-6 { grid-column: span 6; }
+        .col-7 { grid-column: span 7; }
+        .col-8 { grid-column: span 8; }
+        .col-9 { grid-column: span 9; }
+        .col-12 { grid-column: span 12; }
+
+        .footer { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; }
+        
+        .btn-save {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 35px;
+            border-radius: 10px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="tablet-wrapper">
+    <div class="header-banner"></div>
+
+    <form>
+        <div class="section-card card-blue">
+            <div class="section-header blue-t"><i class="fa-solid fa-address-book"></i> Informações do Paciente</div>
+            <div class="grid">
+                <div class="field col-3"><label>Código do Paciente</label><div class="input-group"><i class="fa-solid fa-id-card-clip icon-blue"></i><input type="text" value="12345" readonly></div></div>
+                <div class="field col-9"><label>Nome Completo</label><div class="input-group"><i class="fa-solid fa-user icon-blue"></i><input type="text" placeholder="Digite o nome completo"></div></div>
+                
+                <div class="field col-4"><label>Data de Nascimento</label><div class="input-group"><i class="fa-solid fa-calendar icon-blue"></i><input type="text" placeholder="dd/mm/aaaa"></div></div>
+                <div class="field col-4"><label>CPF</label><div class="input-group"><i class="fa-solid fa-address-card icon-blue"></i><input type="text" placeholder="000.000.000-00"></div></div>
+                <div class="field col-4"><label>Sexo</label>
+                    <div class="sex-options">
+                        <div class="btn-option"><i class="fa-solid fa-mars"></i> Masc</div>
+                        <div class="btn-option"><i class="fa-solid fa-venus"></i> Fem</div>
+                        <div class="btn-option"><i class="fa-solid fa-transgender"></i> Outro</div>
+                        <div class="btn-option"><i class="fa-solid fa-user-slash"></i> N/I</div>
+                    </div>
+                </div>
+
+                <div class="field col-5"><label>Telefone de Contato</label><div class="input-group"><i class="fa-solid fa-phone icon-blue"></i><input type="text" placeholder="(00) 00000-0000"></div></div>
+                <div class="field col-7"><label>E-mail</label><div class="input-group"><i class="fa-solid fa-envelope icon-blue"></i><input type="email" placeholder="exemplo@email.com"></div></div>
+            </div>
+        </div>
+
+        <div class="section-card card-purple">
+            <div class="section-header purple-t"><i class="fa-solid fa-map-location-dot"></i> Endereço</div>
+            <div class="grid">
+                <div class="field col-3"><label>CEP</label><div class="input-group"><i class="fa-solid fa-location-dot icon-purple"></i><input type="text" placeholder="00000-000"></div></div>
+                <div class="field col-9"><label>Endereço Completo</label><div class="input-group"><i class="fa-solid fa-house icon-purple"></i><input type="text" placeholder="Rua, Avenida..."></div></div>
+                
+                <div class="field col-2"><label>Número</label><div class="input-group"><i class="fa-solid fa-hashtag icon-purple"></i><input type="number" placeholder="123"></div></div>
+                <div class="field col-5"><label>Complemento</label><div class="input-group"><i class="fa-solid fa-building icon-purple"></i><input type="text" placeholder="Apto, Bloco..."></div></div>
+                <div class="field col-5"><label>Bairro</label><div class="input-group"><i class="fa-solid fa-map icon-purple"></i><input type="text" placeholder="Bairro"></div></div>
+                
+                <div class="field col-4"><label>UF</label>
+                    <div class="input-group">
+                        <i class="fa-solid fa-flag icon-purple"></i>
+                        <select>
+                            <option value="">Selecione</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="field col-8"><label>Cidade</label>
+                    <div class="input-group">
+                        <i class="fa-solid fa-city icon-purple"></i>
+                        <select>
+                            <option value="">Selecione a cidade</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-card card-green">
+            <div class="section-header green-t"><i class="fa-solid fa-notes-medical"></i> Informações Adicionais</div>
+            <div class="grid">
+                <div class="field col-5"><label>Plano de Saúde</label>
+                    <div class="input-group">
+                        <i class="fa-solid fa-hospital icon-green"></i>
+                        <select>
+                            <option value="">Selecione o plano</option>
+                            <option value="unimed">Unimed</option>
+                            <option value="bradesco">Bradesco Saúde</option>
+                            <option value="amil">Amil</option>
+                            <option value="particular">Particular / Nenhum</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="field col-4"><label>Número da Carteirinha</label>
+                    <div class="input-group">
+                        <i class="fa-solid fa-id-badge icon-green"></i>
+                        <input type="text" placeholder="0000000000000">
+                    </div>
+                </div>
+                <div class="field col-3"><label>Data de Validade</label>
+                    <div class="input-group">
+                        <i class="fa-solid fa-calendar-check icon-green"></i>
+                        <input type="date">
+                    </div>
+                </div>
+                
+                <div class="field col-12" style="margin-top: 10px;">
+                    <div style="display: flex; align-items: center; gap: 12px; background: #f0fdf4; padding: 15px; border-radius: 10px; border: 1px solid #d1fae5;">
+                        <input type="checkbox" id="lgpd" checked style="width: 20px; height: 20px; cursor: pointer;">
+                        <label for="lgpd" style="text-transform: none; color: #065f46; font-size: 0.85rem; font-weight: 600; cursor: pointer;">
+                            Autorizo o uso dos meus dados para fins de agendamento e atendimento médico, conforme LGPD.
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div></div>
+            <button type="submit" class="btn-save">
+                <i class="fa-solid fa-floppy-disk"></i> Salvar Cadastro
+            </button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
